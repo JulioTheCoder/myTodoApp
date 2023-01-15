@@ -9,6 +9,6 @@ Quizá sea creativo y desarrolle algo genial. 🫡
 
 # ¿Te gusta lo que vez y quieres participar?
 
-Mandame un mail: jlujunior1@gmail.com
+Mandame un mail: juljunior1@gmail.com
 
 
