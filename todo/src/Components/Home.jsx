@@ -1,6 +1,12 @@
+import React from "react";
+import Nav from "./Nav";
+import Sidebar from "./SideBar";
 
 export default function Home () {
   return(
-    <h1>El Home está listo para trabajar</h1>
+    <div className="home">
+      <Nav/>
+      <Sidebar/>
+    </div>
   )
 }
