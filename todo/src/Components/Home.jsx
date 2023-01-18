@@ -3,15 +3,20 @@ import Nav from "./Nav";
 import Sidebar from "./SideBar";
 import FormToDo from "./FormToDo";
 import Todos from "./Todos";
+import { useState } from "react";
 
 export default function Home () {
 
-  let listToDo = ["Solucionar el renderizado condicional"];
-  let auxAdder = true;
+  let listToDo = ["Solucionar el renderizado condicional",
+    "Crear CRUD para los ToDo's",
+    "Que los ToDo's no se borren al refrescar",
+    "Añadir los estilos corres pondientes",
+    "Aplicar responsive desing"];
+  let [auxAdder, setAuxAdder] = useState(false);
 
   function adder(e) {
     e.preventDefault();
-    auxAdder?auxAdder = false: auxAdder = true;
+    auxAdder?setAuxAdder(false): setAuxAdder(true);
     console.log("Ay parce, tienes: " + auxAdder);
   }
 
