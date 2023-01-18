@@ -7,11 +7,12 @@ import { useState } from "react";
 
 export default function Home () {
 
-  let listToDo = ["Solucionar el renderizado condicional",
+  let listToDo = [
     "Crear CRUD para los ToDo's",
     "Que los ToDo's no se borren al refrescar",
     "Añadir los estilos corres pondientes",
-    "Aplicar responsive desing"];
+    "Aplicar responsive desing",
+    "todo category system"];
   let [auxAdder, setAuxAdder] = useState(false);
 
   function adder(e) {
