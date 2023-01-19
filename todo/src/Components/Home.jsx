@@ -30,9 +30,13 @@ console.log(`${listToDo}`);
   }
 
   function deleteTodo(e){
-    console.log(e.target);
+    console.log(`Es de tipo ${typeof e.target.value}`);
     e.preventDefault();
-    const newList = listToDo.map( (t, i) => !t.includes(e.target.btnDeleteTodo.value));
+    const newList = listToDo.filter( (t, i) =>{ 
+      console.log(`i: ${ i} y t: ${t}`);
+      return (i.toString() !== e.target.value) && t 
+    });
+    console.log(`NewList ${newList}`);
     setListToDo(newList);
   }
 

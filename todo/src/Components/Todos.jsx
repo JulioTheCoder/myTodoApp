@@ -7,7 +7,7 @@ export default function Todos({ listToDo, deleteToDo }) {
       {
           list.map((t, i) => 
             <div key={i}>
-              <button onClick={(t) => deleteToDo(t)} name="btnDeleteTodo" value={t}>X</button>
+              <button onClick={(t) => deleteToDo(t)} name="btnDeleteTodo" value={i}>X</button>
               <h2>{t}</h2>
             </div>
         )
