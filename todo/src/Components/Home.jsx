@@ -22,17 +22,27 @@ console.log(`${listToDo}`);
     console.log("Ay parce, tienes: " + auxAdder);
   }
 
-  function addToDo (e){
+  //*--------------------------- Métodos CRUD----------------------------------------------
+
+  function addToDo(e){
     e.preventDefault()
-    console.log(e);
     setListToDo([...listToDo, e.target.toDoTitle.value]);
   }
+
+  function deleteTodo(e){
+    console.log(e.target);
+    e.preventDefault();
+    const newList = listToDo.map( (t, i) => !t.includes(e.target.btnDeleteTodo.value));
+    setListToDo(newList);
+  }
+
+//*-----------------------------------------------------------------------------------------
 
   return(
     <div className="home">
       <Nav/>
       <Sidebar/>
-      <Todos listToDo={listToDo}/>
+      <Todos listToDo={listToDo} deleteToDo={deleteTodo}/>
       <button onClick={e =>adder(e)}>Add</button>
       {
         auxAdder && <FormToDo addToDo={addToDo}/>
