@@ -7,22 +7,25 @@ import { useState } from "react";
 
 export default function Home () {
 
-  let listToDo = [
+  const [listToDo, setListToDo] = useState(([
     "Crear CRUD para los ToDo's",
     "Que los ToDo's no se borren al refrescar",
     "Añadir los estilos corres pondientes",
     "Aplicar responsive desing",
-    "todo category system"];
+    "todo category system",
+    "todo description"]));
   let [auxAdder, setAuxAdder] = useState(false);
-
+console.log(`${listToDo}`);
   function adder(e) {
     e.preventDefault();
     auxAdder?setAuxAdder(false): setAuxAdder(true);
     console.log("Ay parce, tienes: " + auxAdder);
   }
 
-  function addToDo (value){
-    listToDo.push (value)
+  function addToDo (e){
+    e.preventDefault()
+    console.log(e);
+    setListToDo([...listToDo, e.target.toDoTitle.value]);
   }
 
   return(
