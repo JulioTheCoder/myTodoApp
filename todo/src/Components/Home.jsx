@@ -3,41 +3,51 @@ import Nav from "./Nav";
 import Sidebar from "./SideBar";
 import FormToDo from "./FormToDo";
 import Todos from "./Todos";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home () {
 
-  const [listToDo, setListToDo] = useState(([
-    "Crear CRUD para los ToDo's",
-    "Que los ToDo's no se borren al refrescar",
-    "Añadir los estilos corres pondientes",
-    "Aplicar responsive desing",
-    "todo category system",
-    "todo description"]));
+  const [listToDo, setListToDo] = useState(([]));
   let [auxAdder, setAuxAdder] = useState(false);
-console.log(`${listToDo}`);
+
+
+  console.log(`${listToDo}`);
   function adder(e) {
     e.preventDefault();
     auxAdder?setAuxAdder(false): setAuxAdder(true);
     console.log("Ay parce, tienes: " + auxAdder);
   }
 
-  //*--------------------------- Métodos CRUD----------------------------------------------
+  function saveLocal(data){
+    localStorage.setItem("toDos", JSON.stringify(data));
+  }
+
+  function dataLocal() {
+    return JSON.parse(localStorage.getItem("toDos"))
+  }
+
+  //*--------------------------- LifeCycle -------------------------------------------------
+  useEffect(() =>{
+    setListToDo(dataLocal())
+  },[])
+  //*---------------------------------------------------------------------------------------
+
+  //*--------------------------- Métodos CRUD ----------------------------------------------
 
   function addToDo(e){
     e.preventDefault()
-    setListToDo([...listToDo, e.target.toDoTitle.value]);
+    saveLocal([...listToDo, e.target.toDoTitle.value])
+    setListToDo(dataLocal());
   }
 
   function deleteTodo(e){
     console.log(`Es de tipo ${typeof e.target.value}`);
     e.preventDefault();
     const newList = listToDo.filter( (t, i) =>{ 
-      console.log(`i: ${ i} y t: ${t}`);
       return (i.toString() !== e.target.value) && t 
     });
-    console.log(`NewList ${newList}`);
-    setListToDo(newList);
+    saveLocal(newList)
+    setListToDo(dataLocal());
   }
 
 //*-----------------------------------------------------------------------------------------
