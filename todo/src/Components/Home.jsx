@@ -15,9 +15,9 @@ export default function Home () {
   function adder(e) {
     e.preventDefault();
     auxAdder?setAuxAdder(false): setAuxAdder(true);
-    console.log("Ay parce, tienes: " + auxAdder);
   }
 
+//*---------------------------- Methods with localStorage---------------------------------
   function saveLocal(data){
     localStorage.setItem("toDos", JSON.stringify(data));
   }
@@ -25,12 +25,15 @@ export default function Home () {
   function dataLocal() {
     return JSON.parse(localStorage.getItem("toDos"))
   }
+  //*---------------------------------------------------------------------------------------
+
 
   //*--------------------------- LifeCycle -------------------------------------------------
   useEffect(() =>{
     setListToDo(dataLocal())
   },[])
   //*---------------------------------------------------------------------------------------
+
 
   //*--------------------------- Métodos CRUD ----------------------------------------------
 

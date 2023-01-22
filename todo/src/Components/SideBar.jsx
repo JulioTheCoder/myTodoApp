@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.css'; // importando hoja de estilo
+//import './Sidebar.css'; // importando hoja de estilo
 
 const Sidebar = () => {
   return (
