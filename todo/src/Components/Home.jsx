@@ -4,6 +4,7 @@ import Sidebar from "./SideBar";
 import FormToDo from "./FormToDo";
 import Todos from "./Todos";
 import { useState, useEffect } from "react";
+import s from "./styles/Home.module.css"
 
 export default function Home () {
 
@@ -56,7 +57,7 @@ export default function Home () {
 //*-----------------------------------------------------------------------------------------
 
   return(
-    <div className="home">
+    <div className={s.Home}>
       <Nav/>
       <Sidebar/>
       <Todos listToDo={listToDo} deleteToDo={deleteTodo}/>

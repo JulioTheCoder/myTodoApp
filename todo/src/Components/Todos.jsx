@@ -1,9 +1,10 @@
 import React from "react";
+import s from "./styles/Todos.module.css"
 
 export default function Todos({ listToDo, deleteToDo }) {
   let list = [...listToDo]
   return (
-    <div className="todos">
+    <div className={s.Todos}>
       {
           list.map((t, i) => 
             <div key={i}>
