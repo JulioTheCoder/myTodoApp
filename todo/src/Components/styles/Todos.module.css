@@ -1,4 +1,7 @@
 
 .Todos{
-  display: inline-block;
+  /* display: inline-block; */
+  /* flex: 3; */
+  background-color: lightyellow;
+  padding: 20px;
 }
