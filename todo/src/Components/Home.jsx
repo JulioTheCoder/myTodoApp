@@ -10,7 +10,7 @@ export default function Home () {
 
   const [listToDo, setListToDo] = useState(([]));
   let [auxAdder, setAuxAdder] = useState(false);
-
+  const [listToDoCheck, setListToDoCheck] = useState([]);
 
   console.log(`${listToDo}`);
   function adder(e) {
@@ -39,7 +39,8 @@ export default function Home () {
   //*--------------------------- Métodos CRUD ----------------------------------------------
 
   function addToDo(e){
-    e.preventDefault()
+    e.preventDefault();
+    setAuxAdder(false);
     saveLocal([...listToDo, e.target.toDoTitle.value])
     setListToDo(dataLocal());
   }
@@ -54,12 +55,17 @@ export default function Home () {
     setListToDo(dataLocal());
   }
 
+  function putTodo(e) {
+    e.preventDefault();
+
+  }
+
 //*-----------------------------------------------------------------------------------------
 
   return(
     <div className={s.Home}>
       <Nav/>
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <Todos listToDo={listToDo} deleteToDo={deleteTodo}/>
       <button onClick={e =>adder(e)}>Add</button>
       {

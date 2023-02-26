@@ -1,7 +1,22 @@
 
 .Todos{
-  /* display: inline-block; */
-  /* flex: 3; */
+  /* display: inline-block;
+  flex: 3; */
   background-color: lightyellow;
   padding: 20px;
+  
+}
+
+.CardTodo{
+  border: solid grey 1px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 15px;
+  width:45.7rem;
+  
+}
+
+.CardTodo:hover{
+  
+background-color: rgb(255, 255, 127);
 }
